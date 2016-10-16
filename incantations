@@ -1,0 +1,9 @@
+Inkantacije moraju bit u istom obliku.
+Prva kolona je ime bota, druga linija za summonanje,
+a treća je linija za dismissanje
+
+Test|Arise, oh mighty test!|And now, his test has ended.|
+HK47|open hk47|close hk47|
+Tesla|God of thunder, walk these lands|Long live Edison!|
+SushiBot|spamFilterOn|spamFilterOff|
+DJ-Placeholder|tune in RB|tune out RB|
