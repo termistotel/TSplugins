@@ -112,14 +112,10 @@ if toFind then
     
     toFind = string.gsub(toFind, " ", "%%20")
 
-		posalji('ok, babura')
-
-    local handle = io.popen("curl -s \"https://en.wikipedia.org/w/api.php?action=opensearch&limit=1&namespace=0&format=json&redirects=resolve&search=" .. toFind .. "\"")
+    local handle = io.popen("curl -ks \"https://en.wikipedia.org/w/api.php?action=opensearch&limit=1&namespace=0&format=json&redirects=resolve&search=" .. toFind .. "\"")
     djejson = handle:read("*a")
     handle:close()
-		posalji(djejson)
     local data = JSON:decode(djejson)
-		posalji(data)
     local link = data[4][1]
     local summary = data[3][1]
     if not link then
