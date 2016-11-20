@@ -1,0 +1,4 @@
+Čitanje novih github repozitorija koji naglo postaju poznati:
+
+Ispisivanje n-te stranice trending repozitorija:
+github trending <n>

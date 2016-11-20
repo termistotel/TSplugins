@@ -1,0 +1,2 @@
+When [b]hacker news[/b] is typed, magic news is displayed.
+

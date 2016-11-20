@@ -13,6 +13,9 @@ do
   kill -SIGTERM $(head -1 $PUT/runningPID)
   tail -n +2 $PUT/runningPID | sponge $PUT/runningPID
 done
+#ps ax | grep "intercept.py" | grep -v grep | cut -c-5 | tr '\n' ' '
+
+kill $(ps ax | grep "intercept.py" | grep -v grep | cut -c-5 | tr '\n' ' ')
 
 #echo "Stopping Music"
 #if (ps ax | grep "$BOTNAME" | grep "startMusic.sh" | grep -v grep  > /dev/null); then

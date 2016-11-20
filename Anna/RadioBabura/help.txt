@@ -1,0 +1,12 @@
+[color=darkgreen][b]RadioBabura :16666[/b][/color]
+[b]Main sound emitter by [color=darkred]RAE[/color][/b]
+
+Fortune and greatness to the resistance!
+
+[b]Commands:[/b]
+radio start 
+radio stop
+next
+[color=white]decode note[/color]
+trenutna ?
+refresh

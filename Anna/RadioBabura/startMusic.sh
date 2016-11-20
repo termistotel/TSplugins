@@ -22,7 +22,9 @@ case "$1" in
 			echo '' > $PUT/currentSong
 			echo $CURRENTSONG | grep -o "[^/]*/[^/]*/[^/]*\.mp3" >> $PUT/currentSong
 			echo $TMP | xargs mp3info | sed 1d | sed '$ d' | sed '$ d' >> $PUT/currentSong
-			echo $TMP | xargs cat | mpg123 -o pulse -a AnnaMouth - & echo $! >> $PUT/runningPID
+			#echo $TMP | xargs cat | mpg123 -s - | python $PUT"/intercept.py" | pacat -d DJ-PlaceholderMouth & echo $! >> $PUT/runningPID
+			echo $TMP | xargs cat | mpg123 -s - | python $PUT"/network/intercept.py" | pacat -d AnnaMouth & echo $! >> $PUT/runningPID
+			#echo $TMP | xargs cat | mpg123 -o pulse -a AnnaMouth - & echo $! >> $PUT/runningPID
 			#echo $TMP | xargs cat | mpg123 -o pulse -a DJ-PlaceholderMouth - & echo $! >> $PUT/runningPID
 		fi
 		;;
@@ -36,19 +38,18 @@ case "$1" in
 				tail -n +2 $PUT/queue | sponge $PUT/queue
 				echo $CURRENTSONG > $PUT/currentSong
 				if (echo $CURRENTSONG | grep "^http" > /dev/null); then
-					youtube-dl --no-progress -f mp4 $CURRENTSONG -o - | ffmpeg -i - -vn -f s16le - | pacat -d AnnaMouth & echo $! >> $PUT/runningPID 
-					#youtube-dl --no-progress -f mp4 $CURRENTSONG -o - | ffmpeg -i - -vn -f s16le - | pacat -d DJ-PlaceholderMouth &	echo $! >> $PUT/runningPID
+					youtube-dl --no-progress -f mp4 $CURRENTSONG -o - | ffmpeg -i - -vn -f s16le - | python2.7 $PUT"/network/intercept.py" | pacat -d AnnaMouth & echo $! >> $PUT/runningPID 
 				else
 					TMP=$(echo $CURRENTSONG | sed 's/ /\\ /g')
 					echo '' > $PUT/currentSong
 					echo $CURRENTSONG | grep -o "[^/]*/[^/]*/[^/]*\.mp3" >> $PUT/currentSong
 					echo $TMP | xargs mp3info | sed 1d | sed '$ d' | sed '$ d' >> $PUT/currentSong
-					echo $TMP | xargs cat | mpg123 -o pulse -a AnnaMouth - & echo $! >> $PUT/runningPID
-					#echo $TMP | xargs cat | mpg123 -o pulse -a DJ-PlaceholderMouth - & echo $! >> $PUT/runningPID
+					echo $TMP | xargs cat | mpg123 -s - | python2.7 $PUT"/network/intercept.py" | pacat -d AnnaMouth & echo $! >> $PUT/runningPID
 				fi
 				sleep 2
 				#Cekaj dok proces ne zavrsi
 				while kill -0 $! 2> /dev/null; do sleep 1; done;
+				#kill $(ps ax | grep "intercept.py" | grep -v grep | cut -c-5 | tr '\n' ' ')   #NEEDS FIXIN
 			done
 
 			find -L $PUT -name "*.mp3*" | sort --random-sort > $PUT/queue 

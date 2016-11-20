@@ -1,0 +1,4 @@
+Postavljanje SQL upita bazi podataka:
+SQL <query>
+
+P.S. Nemojte brisati msgs i moves tablice plox - Termistotel

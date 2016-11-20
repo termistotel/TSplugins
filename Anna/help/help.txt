@@ -1,0 +1,7 @@
+Plugin za trazenje dokumentacije o ostalima
+
+Dostupne komande
+	[b]help[/b] - Daje listu dokumentiranih pluginova
+	[b]help <ime_plugina>[/b] - Ispisuje dokumentaciju plugina
+
+Za dodavanje opisa plugina, potrebno je staviti help.txt u direktorij od plugina te podesiti permisije (read za svakog).

@@ -1,0 +1,13 @@
+Uzimanje random pjesme koja odgovara TAG-u:
+[b]davaj[/b] [TAG]
+
+listanje svih pjesama sa tagom:
+[b]davaj[/b] [OPCIJE]
+	OPCIJE mogu biti: zanrove, artiste [TAG], pjesme [TAG]
+
+stvaranje playliste:
+[b]playlista[/b] [TAG1],[TAG2]... [b]bez[/b] [TAG3],[TAG4]... [b]shuffle[/b]
+       [b]"bez"[/b] i [b]"shuffle"[/b] su opcionalni
+
+Popis već napravljenih playlista:
+[b]ispisi youtube playliste[/b]

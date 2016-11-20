@@ -123,6 +123,14 @@ local function onTextMessageEvent(serverConnectionHandlerID, targetMode, toID, f
       posaljiPoruku(shellKomanda("cat "..plugLoc.."/currentSong"),fromID,targetMode)
     end
 
+    if (message == "decode note") then
+    	local text = shellKomanda("cat "..plugLoc.."/.raenote")
+    	posaljiPoruku(string.sub(text,1,1013),fromID,targetMode)
+    	posaljiPoruku(string.sub(text,1014,1014+879),fromID,targetMode)
+    	posaljiPoruku(string.sub(text,1014+880,1014+879+862),fromID,targetMode)
+    	posaljiPoruku(string.sub(text,1014+880+862,nil),fromID,targetMode)
+    end
+
     local a = string.match(message,"^request (.+)$")
     if a then
       local pjesme = ucitajPjesme("plugins/lua_plugin/Anna/burzum/pjesme.txt")

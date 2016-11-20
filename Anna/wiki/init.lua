@@ -34,6 +34,17 @@ local function onTextMessageEvent(serverConnectionHandlerID, targetMode, toID, f
 		return 0
   end 
 
+  if (string.match(string.lower(message), "falkland islands")) then
+    posalji("What fucking islands?")
+		return 0
+  end 
+  
+  if (string.match(string.lower(message), "^de si[?]?$") 
+    or string.match(string.lower(message), "^pa de si[?]?$")) then
+    posalji("Celi dan te jebali pesi")
+		return 0
+  end 
+
   if (string.match(string.lower(message), "^smrt fasizmu")) then
     posalji("I tebi sinko")
 		return 0
@@ -72,6 +83,18 @@ local function onTextMessageEvent(serverConnectionHandlerID, targetMode, toID, f
 
   if (string.match(string.lower(message), "^aloha!?$")) then
     posalji("Penis ti je ravna ploha.")
+  end
+
+  if (string.match(string.lower(message), "^ey!?$")) then
+    posalji("Ej ti mali gey, nemoj meni ey!")
+  end
+
+  if (string.match(string.lower(message), "^ej!?$")) then
+    posalji("Ej ti mali gej, nemoj meni ej!")
+  end
+
+  if (string.match(string.lower(message), "^hej!?$")) then
+    posalji("Ej ti mali gej, nemoj meni hej!")
   end
 
   if (string.match(string.lower(message), "^dobro jutro!?$")) then

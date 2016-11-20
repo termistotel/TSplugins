@@ -1,0 +1,3 @@
+Dostupne komande
+  [b]vrijeme <ime_grada> sad[/b] - Trenutno vrijeme u <ime_grada>
+  [b]vrijeme <ime_grada> <n> dana[/b] - Kratka prognoza sa svaki dan, n = 1..17
