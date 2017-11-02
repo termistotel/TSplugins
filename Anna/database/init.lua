@@ -151,6 +151,10 @@ local function onTextMessageEventttt(serverConnectionHandlerID, targetMode, toID
 
     if (targetMode==2) then
     --dodaj u fajl
+
+      local userVar = ucitajVarijable(serverConnectionHandlerID, fromID)
+      local uniqueID = userVar[1]
+
       local vrijeme = os.time()
       local datum = os.date("%Y-%m-%d",vrijeme)
       local sati = os.date("%X",vrijeme)
@@ -160,7 +164,8 @@ local function onTextMessageEventttt(serverConnectionHandlerID, targetMode, toID
       io.close(file)
 
       --dodaj u SQL
-	  posaljiPoruku(dodajRed("msgs", {datum,sati,fromName,string.len(message)}),fromID,targetMode)  
+      posaljiPoruku(dodajRed("msgs", {datum,sati,fromName,string.len(message)}),fromID,1)
+      posaljiPoruku(dodajRed("msgsFull", {datum,sati,uniqueID,fromName,message}),fromID,1) 
     end
 
     return 0

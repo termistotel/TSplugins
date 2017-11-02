@@ -79,19 +79,22 @@ playlists_insert_response = youtube.playlists().insert(
 mojID = playlists_insert_response["id"]
 
 for i in sys.argv[3:]:
-    add_video_request=youtube.playlistItems().insert(
-    part="snippet",
-    body={
-          'snippet': {
-          'playlistId': mojID,
-          'resourceId': {
-                  'kind': 'youtube#video',
-              'videoId': i
+    try:
+        add_video_request=youtube.playlistItems().insert(
+        part="snippet",
+        body={
+            'snippet': {
+            'playlistId': mojID,
+            'resourceId': {
+                    'kind': 'youtube#video',
+                'videoId': i
+                }
+            #'position': 0
             }
-        #'position': 0
         }
-     }
-     ).execute()
+        ).execute()
+    except ValueError:
+        pass
 
 sys.stdout.write(mojID)
 sys.stdout.flush()

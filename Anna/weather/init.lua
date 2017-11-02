@@ -1,5 +1,3 @@
-require("ts3init")
-
 unrequire("Anna/weather/json")
 local JSON = require("Anna/weather/json")
 
@@ -12,7 +10,7 @@ local function onTextMessageEvent(serverConnectionHandlerID, targetMode, toID, f
         ts3.requestSendPrivateTextMsg(serverConnectionHandlerID, poruka, fromID)
       else
         ts3.requestSendChannelTextMsg(serverConnectionHandlerID, poruka, myChannelID)
-      end
+     end
     end
 
     if (fromID~= myID) then

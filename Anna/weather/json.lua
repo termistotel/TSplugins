@@ -288,8 +288,9 @@ local OBJDEF = {
 
 --prilagodba
 local function tonumber1(tekst)
-   tmp = string.gsub(tekst,'(%.)',',')
-   return tonumber(tmp)
+   --tmp = string.gsub(tekst,'(%.)',',')
+   --return tonumber(tmp)
+   return tonumber(tekst)
 end
 
 

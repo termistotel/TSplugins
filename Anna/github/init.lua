@@ -1,4 +1,5 @@
 require("ts3init")
+unrequire("Anna/github/json")
 local JSON = require("Anna/github/json")
 
 
@@ -38,10 +39,12 @@ local function onTextMessageEvent(serverConnectionHandlerID, targetMode, toID, f
 
       local data = JSON:decode(djejson)
 
-      poruka = "Popularni repozitoriji u zadnjih mjesec dana:  [Page "..start.."]"
+      poruka = ""
 
       start = (start-1)*5 + 1
 
+
+      posalji("Popularni repozitoriji u zadnjih mjesec dana:  [Page "..start.."]")
       for i=start,start+4,1 do
 --      for k,v in ipairs(data["items"]) do
         if not data["items"][i] then break end
@@ -50,11 +53,12 @@ local function onTextMessageEvent(serverConnectionHandlerID, targetMode, toID, f
         else
           poruka = poruka.."\n[unknown]"
         end
-        poruka = poruka.."[url="..data["items"][i]["svn_url"].."]"..data["items"][i]["name"].."[/url]:"..data["items"][i]["description"]
-   
+        posalji(poruka.."[url="..data["items"][i]["svn_url"].."]"..data["items"][i]["name"].."[/url]:"..data["items"][i]["description"])
+        poruka = ""   
       end
 
-      posalji(poruka)
+--      print(poruka)
+--      posalji(poruka)
 
 
 --[[

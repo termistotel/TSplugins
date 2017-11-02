@@ -29,7 +29,7 @@ local function onTextMessageEvent(serverConnectionHandlerID, targetMode, toID, f
 		return 0
   end 
 
-  if (string.match(string.lower(message), "^halo$")) then
+  if (string.match(string.lower(message), "^h?alo$")) then
     posalji("Metnem ti ga malo!")
 		return 0
   end 
@@ -48,6 +48,11 @@ local function onTextMessageEvent(serverConnectionHandlerID, targetMode, toID, f
   if (string.match(string.lower(message), "^smrt fasizmu")) then
     posalji("I tebi sinko")
 		return 0
+  end 
+
+  if (string.match(string.lower(message), "^ahoj")) then
+    posalji("Če si gnoj si gnoj")
+    return 0
   end 
 
   if (string.match(string.lower(message), "^h?ola$")) then
@@ -101,8 +106,49 @@ local function onTextMessageEvent(serverConnectionHandlerID, targetMode, toID, f
     posalji("Nemoj ti meni jutro, glupa butro!")
   end
 
+  if (string.match(string.lower(message), "^good morning!?$")) then
+    posalji("Nemoj ti meni good morning, glupi butrinjoling!")
+  end
+
   if (string.match(string.lower(message), "^jutro!?$")) then
     posalji("Nemoj ti meni jutro glupa butro!")
+  end
+
+  if (string.match(string.lower(message), "^jutrinjo!?$")) then
+    posalji("Nemoj ti meni jutrinjo glupa butrinjo!")
+  end
+
+  if (string.match(string.lower(message), "^dobar jutrinjo!?$")) then
+    posalji("Nemoj ti meni jutrinjo glupa butrinjo!")
+  end
+
+  if (string.match(string.lower(message), "^jutrinjola!?$")) then
+    posalji("Nemoj ti meni jutrinjola glupa butrinjola!")
+  end
+
+  if (string.match(string.lower(message), "^jutar!?$")) then
+    posalji("Nemoj ti meni jutar glupi butar!")
+  end
+
+  if (string.match(string.lower(message), "^butra!?$")) then
+    posalji("Nemoj ti meni butra glupi jutra!")
+  end
+
+  if (string.match(string.lower(message), "^butar!?$")) then
+    posalji("Nemoj ti meni butar glupi jutar!")
+  end
+
+  if (string.match(string.lower(message), "jutra.?$")) then
+    posalji("Fakat si glupa butra!")
+  end
+
+  if (string.match(string.lower(message), "^dobar jutar!?$")) then
+    posalji("Nemoj ti meni jutar glupi butar!")
+  end
+
+  if (string.match(string.lower(message), "večer!?$") or string.match(string.lower(message), "vecer!?$") or 
+      string.match(string.lower(message), "dobra vecer!?$") or string.match(string.lower(message), "dobra večer!?$")) then
+    posalji("Jebo te u sule kecer")
   end
 
   if (string.match(string.lower(message), "^zdravo!?$")) then
@@ -114,8 +160,26 @@ local function onTextMessageEvent(serverConnectionHandlerID, targetMode, toID, f
     return 0
   end 
 
+  if (string.match(string.lower(message), "^i don't\.\.\.")) then
+    posalji("... [URL=https://www.youtube.com/watch?v=Alh6iIvVN9o]care[/URL]!")
+    return 0
+  end 
+
   if (string.match(string.lower(message), "whats that?")) then
     posalji("That? It's just a [url=http://www.mortonsdairies.co.uk/media/products/1-pint-poly-whole-milk.jpg]pint o' milk.[/url]")
+  end 
+
+  if (string.match(string.lower(message), "what is going on here")) then
+    posalji("[url=https://www.youtube.com/watch?v=sA_eCl4Txzs]Breakfast![/url]")
+  end 
+
+  if (string.match(string.lower(message), "glupa anna") or string.match(string.lower(message), "anna je glupa")) then
+    posalji("Ti si glup :/")
+  end 
+
+  if (string.match(string.lower(message), "hello!*$") or string.match(string.lower(message), "helou!*$")
+      or string.match(string.lower(message), "helow!*$")) then
+    posalji("My dick you are going to blow")
   end 
 
   if (string.match(string.lower(message), "kill jester")) then

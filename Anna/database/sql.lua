@@ -13,7 +13,6 @@ function sqlQuery(query)
   tmpQuery,_ = string.gsub(tmpQuery, "&", "")
   tmpQuery,_ = string.gsub(tmpQuery, "|", "")
   tmpQuery,_ = string.gsub(tmpQuery, "$", "")
-  tmpQuery,_ = string.gsub(tmpQuery, "`", "")
   
   if string.match(tmpQuery,"^[.]") then return shellKomanda("sqlite3 "..bazaLoc.." ".."\""..tmpQuery.."\"") end
 
@@ -36,11 +35,16 @@ end
 function dodajRed(tabla, podaci)
     local query = "INSERT INTO "..tabla.. " VALUES ("
     local podaciQuery = ""
+    local tmpVrijednost= ""
 
-    for _,vrijednost in pairs(podaci) do 
-    	if type(vrijednost)=="string" then podaciQuery = podaciQuery.."\'"..vrijednost.."\',"
+    for _,vrijednost in ipairs(podaci) do 
+      if type(vrijednost)=="string" then
+        tmpVrijednost,_=string.gsub(vrijednost,"\'","\'\'")
+        podaciQuery = podaciQuery.."\'"..tmpVrijednost.."\',"
     	elseif type(vrijednost)=="number" then podaciQuery = podaciQuery..vrijednost..","
     	else return "Krivi tip podataka" end
-    end    
+    end
+
+  --print(query..string.sub(podaciQuery,1,-2)..");")
 	return sqlQuery(query..string.sub(podaciQuery,1,-2)..");")
 end

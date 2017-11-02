@@ -307,6 +307,7 @@ end
 local helpStrPool = {"help", "pomoc"}
 
 
+
 local function onTextMessageEvent(serverConnectionHandlerID, targetMode, toID, fromID, fromName, fromUniqueIdentifier, message, ffIgnored)
 
     myID = ts3.getClientID(serverConnectionHandlerID)

@@ -10,3 +10,8 @@ next
 [color=white]decode note[/color]
 trenutna ?
 refresh
+
+[b]request <tag>[/b]
+	Zatraži puštanje određenog taga na radio. Popis
+	pjesama za requestanje je identičan onom za
+	puštanje muzike s youtube-a. [i]For now...[/i]

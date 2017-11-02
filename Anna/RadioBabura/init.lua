@@ -6,6 +6,9 @@ require("Anna/RadioBabura/treee")
 local songLoc = ts3.getPluginPath().."lua_plugin/Anna/RadioBabura/pjesme"
 local plugLoc = ts3.getPluginPath().."lua_plugin/Anna/RadioBabura"
 local dirLoc = ts3.getPluginPath().."lua_plugin/Anna"
+local rasporedLoc = ts3.getPluginPath().."lua_plugin/Anna/RadioBabura/emisije"
+
+local requestPopis = ucitajPjesme("plugins/lua_plugin/Anna/burzum/pjesme.txt")
 
 local function randomElement(acc)
   return acc[math.random(#acc)]
@@ -95,8 +98,6 @@ end
 local function onTextMessageEvent(serverConnectionHandlerID, targetMode, toID, fromID, fromName, fromUniqueIdentifier, message, ffIgnored)
   local myID = ts3.getClientID(serverConnectionHandlerID)
   local myChannelID = ts3.getChannelOfClient(serverConnectionHandlerID, myID)
-  local pjesme = {}
-
 
   if (fromID~= myID) then
 
@@ -119,8 +120,13 @@ local function onTextMessageEvent(serverConnectionHandlerID, targetMode, toID, f
       shellKomanda(plugLoc.."/startMusic.sh playOne")
     end
 
-    if (message == "trenutna ?") then
-      posaljiPoruku(shellKomanda("cat "..plugLoc.."/currentSong"),fromID,targetMode)
+    if (message == "trenutna ?") or (message == "trenutna?") then
+			local songName = shellKomanda("cat "..plugLoc.."/currentSong")
+			if string.match(songName, "^https?://") then
+      	posaljiPoruku("[url]"..songName.."[/url]", fromID,targetMode)
+			else
+      	posaljiPoruku(songName, fromID,targetMode)
+			end
     end
 
     if (message == "decode note") then
@@ -133,10 +139,9 @@ local function onTextMessageEvent(serverConnectionHandlerID, targetMode, toID, f
 
     local a = string.match(message,"^request (.+)$")
     if a then
-      local pjesme = ucitajPjesme("plugins/lua_plugin/Anna/burzum/pjesme.txt")
       local matches = {}
       local svePjesme = {}
-      nadiDobre(a,pjesme,matches,nil,0.5)
+      nadiDobre(a,requestPopis,matches,nil,0.5)
       if (#matches>0) then
         for _,k in ipairs(matches) do sviLeafovi(k,svePjesme) end
         local match = randomElement(svePjesme)
@@ -156,6 +161,23 @@ local function onTextMessageEvent(serverConnectionHandlerID, targetMode, toID, f
   return 0
 end
 
+
+
+
+--Ucitavanje rasporeda
+local tmp = ""
+local tmp1= ""
+local tmp2= ""
+
+local file = io.open (rasporedLoc.."/raspored", "r")
+for line in file:lines() do
+  if not string.match(line,"^#") then
+    tmp1= string.match(line, "^([^%s]+%s+[^%s]+%s+[^%s]+%s+[^%s]+%s+[^%s]+%s+)")
+    tmp2= string.match(line, "^[^%s]+%s+[^%s]+%s+[^%s]+%s+[^%s]+%s+[^%s]+%s+(.+)")
+    tmp = tmp..tmp1..rasporedLoc.."/mainScript.sh ".."\\\""..rasporedLoc.."/"..tmp2.."\\\"".. "\n"
+  end
+end
+shellKomanda("echo \""..tmp.."\" | crontab -")
 
 
 local registeredEvents = {

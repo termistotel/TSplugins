@@ -41,7 +41,7 @@ local function onTextMessageEvent(serverConnectionHandlerID, targetMode, toID, f
 
     joke = unescape(joke)
 
-    local baburazi = {"Alobar", "Lonelos", "Tormentor", "Jakyx"}
+    local baburazi = {"Alobar", "Lonelos", "Tormentor", "Nexx", "Jakyx"}
     local baburaz = baburazi[math.random(#baburazi)]
 
     joke = joke:gsub("Chuck Norris", baburaz)

@@ -2,7 +2,7 @@
 
 echo -e "\nDokumentacija je dostupna za sljedece pluginove: "
 
-find plugins/lua_plugin -name "help.txt" -print0 2>/dev/null |
+find /home/Durda/LUA/ts3Skripte -name "help.txt" -print0 2>/dev/null |
 while IFS= read -r -d $'\0' line; do
   line=$(echo $line | sed -rn 's#.*/(.*)/help.txt$#\1#Ip')
   echo -e "\t- $line"

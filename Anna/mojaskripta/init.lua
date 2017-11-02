@@ -2,6 +2,8 @@ require("ts3init")
 unrequire("Anna/mojaskripta/strMatch")
 require("Anna/mojaskripta/strMatch")
 
+debug.sethook()
+
 spm=10
 local function posaljiPoruku(poruka, fromID, targetMode)
   local serverConnectionHandlerID = ts3.getCurrentServerConnectionHandlerID()
@@ -48,7 +50,7 @@ poolGoodgod[1] = {"good god", "good lord", "great scott", "lordy", "lawd"}
 poolGoodgod[2] = {"( •_•)>⌐■-■"}
 
 local poolSummoncthulhu = {}
-poolSummoncthulhu[1] = {"that is not dead which can eternal lie"}
+poolSummoncthulhu[1] = {"that is not dead which can eternal lie", "and with strange aeons even death may die"}
 poolSummoncthulhu[2] = {"╭(◕◕ ◉෴◉ ◕◕)╮", "(屮｀∀´)屮", "ƪ(`▿▿▿▿´ƪ)"}
 
 local quran_quotes = {"[I]And fight them until there is no Fitnah and the religion, all of it, is for Allah.[/I] [Quran 8:39]", 
@@ -78,11 +80,14 @@ local function onTextMessageEventttt(serverConnectionHandlerID, targetMode, toID
     --math.randomseed(os.time())
     --time_check = os.clock()
     
-       
 
 
     if (fromID~= myID) then
 
+      if message=="test" then
+      	coroutine.resume(co)
+      	coroutine.resume(co)
+      end
 
       if (strMatchPerfect(string.lower(string.sub(message,1,20)),"muteaj se") > 0.37) then
         if string.match(string.lower(message),"od") then
@@ -130,19 +135,38 @@ local function onTextMessageEventttt(serverConnectionHandlerID, targetMode, toID
         posaljiPoruku("[b]Brutal. Savage. Rekt.[/b]", fromID, targetMode)
       end
 
+	if string.match(string.lower(message), "peki mi cio") then
+        posaljiPoruku("hula hularem", fromID, targetMode)
+      end
 
-      if (string.match(string.lower(message), "i have...")) then
+  if string.match(string.lower(message), "mijau") then
+        posaljiPoruku("Vau Vau! Grrr...!", fromID, targetMode)
+      end
+
+  if (message == "polish") then
+    posaljiPoruku("ą Ą  ę Ę  ł Ł  ń Ń  ó Ó  ś Ś  ź Ź  ż Ż", fromID, targetMode)
+    end
+
+  if string.match(string.lower(message), "sacred land") then
+        posaljiPoruku("卐", fromID, targetMode)
+      end
+
+      if (string.match(string.lower(message), "i have..")) then
         posaljiPoruku("... [url=https://www.youtube.com/watch?v=6qJ1E8EljVM]returned[/url].", fromID, targetMode)
         return 0
       end
 
-      if (message == "carrier...") or (message == "Carrier...") then
+      if (message == "carrier..") or (message == "Carrier..") then
         posaljiPoruku("... [url=https://www.youtube.com/watch?v=2vj37yeQQHg]has arrived[/url].", fromID, targetMode)
       end
 
-      if (message == "stay awhile...") or (message == "Stay awhile...") then
+      if (message == "stay awhile..") or (message == "Stay awhile..") then
         posaljiPoruku("... [url=https://www.youtube.com/watch?v=tAVVy_x3Erg]and listen[/url].", fromID, targetMode)
       end
+      if (message == "češć") then
+        posaljiPoruku("Cześć! Jak się masz?", fromID, targetMode)
+      end
+      
 
 
       --Emoji

@@ -14,7 +14,7 @@ sock.bind(("192.168.2.10",1667))
 slusajFlag = True
 sessions = {}
 #sessions['192.168.2.101'] = 2
-bufer = 4096
+bufer = 1024
 lock = Lock()
 
 put = "/home/ts3srv/tsbot/TeamSpeak3-Client-linux_amd64/plugins/lua_plugin/Anna/RadioBabura/network/"

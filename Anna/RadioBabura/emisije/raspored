@@ -1,0 +1,33 @@
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').#
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+# 
+# m h  dom mon dow   script
+#
+# minute(0-59) hour(0-23) dayOfMonth(1-31) month(1-12) dayOfWeek(0-7) command   ##0 i 7 su nedjelja za dayOfWeek
+#
+#
+# primjeri rasporeda:
+#
+#
+# pušta svaki dan u pol 5 skriptu koja se nalazi u 
+# "[...]RadioBabura/raspored/skripta.sh":
+#
+# 30 16 * * * skripta.sh
+#
+#
+# ista stvar samo petkom i suotom:
+#
+# 30 16 * * 5-6 skripta.sh         <- (raspon od nekog do nekog drugog dana ili mjeseca se zadaje sa "neki-nekiDrugi")
+#
+#
+# isto samo ponedjeljcima koji su unutar prvih 15 dana prvog mjeseca
+# 
+# 30 16 1-15 1 1 skripta.sh
+#
+00 20 * * * test.sh play
+00 17 * * 6 HistoryofRome.sh play
+20 20 * * * KnightTime.sh play
+15 23 * * 1,3,5,7 Latecraft.sh play
