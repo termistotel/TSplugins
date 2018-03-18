@@ -122,6 +122,63 @@ local function onTextMessageEvent(serverConnectionHandlerID, targetMode, toID, f
     posalji("Nemoj ti meni jutrinjo glupa butrinjo!")
   end
 
+  if (string.match(string.lower(message), "^jutrola!?$")) then
+    posalji("Nemoj ti meni jutrola glupa butrola!")
+  end
+
+  if (string.match(string.lower(message), "^jutrinja!?$")) then
+    posalji("Nemoj ti meni jutrinja glupa butrinja!")
+  end
+
+  if (string.match(string.lower(message), "^jutrinjolica!?$")) then
+    posalji("Nemoj ti meni jutrinjolica glupa butrinjolica!")
+  end
+
+  if (string.match(string.lower(message), "femini")) then
+    feminizam = {
+      '"A woman without a man is like a fish without a bicycle." - Irina Dunn',
+      '"Why do people say "grow some balls"? Balls are weak and sensitive. If you wanna be tough, grow a vagina. Those things can take a pounding." - Sheng Wang',
+      '"I\'m tough, I\'m ambitious, and I know exactly what I want. If that makes me a bitch, okay." - Madonna',
+      '"I myself have never been able to find out precisely what feminism is: I only know that people call me a feminist whenever I express sentiments that differentiate me from a doormat." - Rebecca West',
+      '"Feminism is the radical notion that women are human beings." - Cheris Kramarae',
+      '"He - and if there is a God, I am convinced he is a he, because no woman could or would ever fuck things up this badly." - George Carlin',
+      '"You educate a man; you educate a man. You educate a woman; you educate a generation." - Brigham Young'
+    }
+    posalji(feminizam[math.random(#feminizam)])
+  end
+
+  if (string.match(string.lower(message), "vegan")) then
+    veganizam = {
+      '"If slaughterhouses had glass walls, the whole world would be vegetarian." - Linda McCartney',
+      '"You have just dined, and however scrupulously the slaughterhouse is concealed in the graceful distance of miles, there is complicity." - Ralph Waldo Emerson',
+      '"We do not need to eat animals, wear animals, or use animals for entertainment purposes, and our only defense of these uses is our pleasure, amusement, and convenience." - Gary L. Francione',
+      '"I choose not to make a graveyard of my body for the rotting corpses of dead animals." - George Bernard Shaw',
+      '"Veganism is not a "sacrifice." It is a joy." - Gary L. Francione',
+      '"Do you know why most survivors of the Holocaust are vegan? It\'s because they know what it\'s like to be treated like an animal." - Chuck Palahniuk, Lullaby',
+      '"A man of my spiritual intensity does not eat corpses." - George Bernard Shaw',
+      '"If you are not vegan, please consider going vegan. It’s a matter of nonviolence. Being vegan is your statement that you reject violence to other sentient beings, to yourself, and to the environment, on which all sentient beings depend" - Gary L. Francione',
+      '"All sentient beings should have at least one right—the right not to be treated as property" - Gary L. Francione'
+    }
+    posalji(veganizam[math.random(#veganizam)])
+  end
+
+  if (string.match(string.lower(message), "komuni")) then
+    komunizam = {
+      '"You show me a capitalist, and I\'ll show you a bloodsucker" - Malcom X',
+      '"When I give food to the poor, they call me a saint. When I ask why the poor have no food, they call me a communist." - Hélder Câmara, Dom Helder Camara: Essential Writings ',
+      '"Freedom in capitalist society always remains about the same as it was in ancient Greek republics: Freedom for slave owners." - Vladimir Lenin',
+      '"The end may justify the means as long as there is something that justifies the end." - Leon Trotsky',
+      '"The history of all hitherto existing society is the history of class struggles." - Karl Marx',
+      '"A specter is haunting Europe—the specter of Communism. All the powers of old Europe have entered into a holy alliance to exorcise this specter; Pope and Czar, Metternich and Guizot, French radicals and German police spies." - Karl Marx',
+      '"Communism will win" - Pasko Patak (known as Slavoj Zizek)',
+      '"Unity is a great thing and a great slogan. But what the workers’ cause needs is the unity of Marxists, not unity between Marxists, and opponents and distorters of Marxism." - Vladimir Lenin',
+      '"An army of the people is invincible!" - Mao Zedong',
+      '"Let the ruling classes tremble at a communist revolution. The proletarians have nothing to lose but their chains. They have a world to win. Workingmen of all countries, unite!" - Karl Marx',
+      '"The theory of Communism may be summed up in one sentence: Abolish all private property." - Karl Marx'
+    }
+    posalji(komunizam[math.random(#komunizam)])
+  end
+
   if (string.match(string.lower(message), "^jutrinjola!?$")) then
     posalji("Nemoj ti meni jutrinjola glupa butrinjola!")
   end

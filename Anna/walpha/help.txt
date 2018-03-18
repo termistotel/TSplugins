@@ -1,0 +1,7 @@
+Ispisuje rezultat upita na Wolfram|Alpha Short Answers API.
+
+Nacin koristenja:
+!walpha <upit>
+
+Primjer:
+!walpha what is airspeed velocity of an unladen swallow?

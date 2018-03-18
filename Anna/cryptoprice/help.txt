@@ -1,0 +1,7 @@
+Ispisuje trenutnu vrijednost kriptovaluta.
+
+Nacin koristenja:
+!price <simbol kriptovalute>
+
+Primjer:
+!price ETH

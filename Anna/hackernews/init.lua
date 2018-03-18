@@ -1,6 +1,6 @@
 require("ts3init")
 -- JSON = require("jokemachine/json")
-JSON = require("Anna/wiki/json")
+JSON = require("Anna/cryptoprice/json")
 
 
 local function onTextMessageEvent(serverConnectionHandlerID, targetMode, toID, fromID, fromName, fromUniqueIdentifier, message, ffIgnored)
