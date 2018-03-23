@@ -121,6 +121,7 @@ local function onTextMessageEvent(serverConnectionHandlerID, targetMode, toID, f
     end
 
     if (message == "trenutna ?") or (message == "trenutna?") then
+	print("yap")
 			local songName = shellKomanda("cat "..plugLoc.."/currentSong")
 			if string.match(songName, "^https?://") then
       	posaljiPoruku("[url]"..songName.."[/url]", fromID,targetMode)

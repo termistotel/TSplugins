@@ -84,10 +84,10 @@ local function onTextMessageEventttt(serverConnectionHandlerID, targetMode, toID
 
     if (fromID~= myID) then
 
-      if message=="test" then
-      	coroutine.resume(co)
-      	coroutine.resume(co)
-      end
+--      if message=="test" then
+--      	coroutine.resume(co)
+--      	coroutine.resume(co)
+--      end
 
       if (strMatchPerfect(string.lower(string.sub(message,1,20)),"muteaj se") > 0.37) then
         if string.match(string.lower(message),"od") then

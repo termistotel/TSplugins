@@ -4,8 +4,10 @@ require("Anna/database/sql")
 
 local pastOnline = {}
 local sviKlijenti = {}
+local database = "/home/tsbot/database"
 
-file = io.open ("plugins/lua_plugin/Anna/database/sviKlijenti.popis", "r")
+-- file = io.open ("plugins/lua_plugin/Anna/database/sviKlijenti.popis", "r")
+file = io.open (database.."/sviKlijenti.popis", "r")
 local z = 0
 for line in file:lines() do
 	z = z + 1
@@ -31,7 +33,7 @@ local function inList(b, as)
 end
 
 local function zapisiKlijente(sviKlijenti)
-  local file = io.open("plugins/lua_plugin/Anna/database/sviKlijenti.popis", "w")
+  local file = io.open(database.."/sviKlijenti.popis", "w")
 
   for i,lik in pairs(sviKlijenti) do
     file:write(lik[1].."\t"..lik[2].."\n")
@@ -159,7 +161,7 @@ local function onTextMessageEventttt(serverConnectionHandlerID, targetMode, toID
       local datum = os.date("%Y-%m-%d",vrijeme)
       local sati = os.date("%X",vrijeme)
       local data = datum.."\t"..sati.."\t"..fromName.."\t"..string.len(message)
-      local file = io.open("plugins/lua_plugin/Anna/database/msgs.data", "a")
+      local file = io.open(database.."/msgs.data", "a")
       file:write(data.."\n")
       io.close(file)
 
@@ -177,7 +179,7 @@ function onClientMoveEvent(serverConnectionHandlerID, clientID, oldChannelID, ne
     local vrijeme = os.time()
     local datum = os.date("%Y-%m-%d",vrijeme)
     local sati = os.date("%X",vrijeme)
-    local file = io.open("plugins/lua_plugin/Anna/database/moves.data", "a")
+    local file = io.open(database.."/moves.data", "a")
     local data = datum.."\t"..sati
     local kanali = ts3.getChannelList(serverConnectionHandlerID)
     local tmpPopis = popis(serverConnectionHandlerID,kanali)
@@ -240,7 +242,7 @@ function onClientMoveEvent(serverConnectionHandlerID, clientID, oldChannelID, ne
       --Ako ode odma nakon što uđe
       if (uniqueID == "Unknown") and (ime == "Unknown") and (platforma == "Unknown") then
         local zadnja = ""
-        file = io.open ("plugins/lua_plugin/Anna/database/moves.data", "r")
+        file = io.open (database.."/moves.data", "r")
         for line in file:lines() do
           if line == "\n" then break end
           zadnja = line
@@ -303,7 +305,7 @@ function onClientMoveTimeoutEvent(serverConnectionHandlerID, clientID, oldChanne
     local vrijeme = os.time()
     local datum = os.date("%Y-%m-%d",vrijeme)
     local sati = os.date("%X",vrijeme)
-    local file = io.open("plugins/lua_plugin/Anna/database/moves.data", "a")
+    local file = io.open(database.."/moves.data", "a")
     local data = datum.."\t"..sati
 
     --Postavi pastOnline ako jos nije postavljen
@@ -334,7 +336,7 @@ function onClientMoveTimeoutEvent(serverConnectionHandlerID, clientID, oldChanne
     --Ako ode odma nakon što uđe
     if (uniqueID == "Unknown") and (ime == "Unknown") and (platforma == "Unknown") then
       local zadnja = ""
-      file = io.open ("plugins/lua_plugin/Anna/database/moves.data", "r")
+      file = io.open (database.."/moves.data", "r")
       for line in file:lines() do
         if line == "\n" then break end
         zadnja = line

@@ -1,7 +1,7 @@
 #! /bin/bash
 
 if [ -z "$2" ]; then
-  PUT="/home/ts3srv/tsbot/TeamSpeak3-Client-linux_amd64/plugins/lua_plugin/Anna/RadioBabura"
+  PUT="/home/tsbot/TeamSpeak3-Client-linux_amd64/plugins/lua_plugin/Anna/RadioBabura"
 else
   PUT=$2/..
 fi

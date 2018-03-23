@@ -1,4 +1,4 @@
-local bazaLoc = "~/Anna"
+local bazaLoc = "~/database/Anna"
 
 local function shellKomanda(komanda)
   local handle = io.popen(komanda .. " 2>&1")

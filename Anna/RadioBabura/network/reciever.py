@@ -2,7 +2,7 @@
 import socket
 import time
 
-put = "/home/ts3srv/tsbot/TeamSpeak3-Client-linux_amd64/plugins/lua_plugin/Anna/RadioBabura/network/"
+put = "/home/tsbot/TeamSpeak3-Client-linux_amd64/plugins/lua_plugin/Anna/RadioBabura/network/"
 MY_IP = "192.168.2.10"
 UDP_PORT = 1667
 
